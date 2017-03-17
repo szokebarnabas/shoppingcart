@@ -2,11 +2,12 @@ package uk.gov.hmrc.checkout
 
 class ShoppingCart {
 
+  private val productCatalog = Map(
+    "Apple" -> BigDecimal(0.6),
+    "Orange" -> BigDecimal(0.25)
+  )
+
   def totalCost(items: Seq[String]): BigDecimal = {
-    items.foldLeft(BigDecimal(0.0)) {
-      case (sum, "Apple") => sum + BigDecimal(0.6)
-      case (sum, "Orange") => sum + BigDecimal(0.25)
-      case (sum, _) => sum
-    }
+    items.foldLeft(BigDecimal(0.0))((sum, prod) => sum + productCatalog.getOrElse(prod, 0))
   }
 }
