@@ -1,4 +1,4 @@
-package uk.gov.hmrc.checkout
+package org.bs.checkout
 
 import scala.annotation.tailrec
 import scala.math.BigDecimal.RoundingMode

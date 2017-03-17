@@ -1,4 +1,4 @@
-package uk.gov.hmrc.checkout
+package org.bs.checkout
 
 import org.scalatest.{Matchers, WordSpec}
 
