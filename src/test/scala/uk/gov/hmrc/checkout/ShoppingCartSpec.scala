@@ -19,5 +19,11 @@ class ShoppingCartSpec extends WordSpec with Matchers {
 
       result shouldBe 2.05
     }
+
+    "return 0 if the input is empty" in {
+      val result = shoppingCart.totalCost(Seq())
+
+      result shouldBe 0
+    }
   }
 }
