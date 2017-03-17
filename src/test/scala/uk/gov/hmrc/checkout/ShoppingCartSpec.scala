@@ -11,19 +11,31 @@ class ShoppingCartSpec extends WordSpec with Matchers {
     "return the total cost of the products" in {
       val result = shoppingCart.totalCost(Seq("Apple", "Apple", "Orange", "Apple"))
 
-      result shouldBe 2.05
+      result shouldBe 1.45
     }
 
     "ignore unknown products in the calculation" in {
       val result = shoppingCart.totalCost(Seq("Apple", "Apple", "Orange", "Apple", "Banana", "Kiwifruit"))
 
-      result shouldBe 2.05
+      result shouldBe 1.45
     }
 
     "return 0 if the input is empty" in {
       val result = shoppingCart.totalCost(Seq())
 
       result shouldBe 0
+    }
+
+    "apply the buy one get one free on Apples offer on the product list" in {
+      val result = shoppingCart.totalCost(Seq("Apple", "Apple", "Orange"))
+
+      result shouldBe 0.85
+    }
+
+    "apply the 3 for the price of two on Oranges offer on the product list" in {
+      val result = shoppingCart.totalCost(Seq("Orange", "Orange", "Orange", "Apple"))
+
+      result shouldBe 1.10
     }
   }
 }
