@@ -37,5 +37,11 @@ class ShoppingCartSpec extends WordSpec with Matchers {
 
       result shouldBe 1.10
     }
+
+    "combine multiple product offers on the product list" in {
+      val result = shoppingCart.totalCost(Seq("Orange", "Orange", "Orange", "Orange", "Apple", "Apple", "Apple"))
+
+      result shouldBe (0.75 + 1.20)
+    }
   }
 }
